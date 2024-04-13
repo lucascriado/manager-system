@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <form action="/home" method="POST">
-        <input type="text" name="name" id="name" placeholder="Nome do Prduto">
-        <input type="text" name="price" id="price" placeholder="Preço do Produto">
-        <input type="text" name="description" id="description" placeholder="Descrição do Produto">
-        <input type="submit" value="Cadastrar">
+<body class="bg-gray-200 p-6">
+    <form action="/home" method="POST" class="bg-white p-6 rounded shadow-md">
+        <input type="text" name="name" id="name" placeholder="Nome do Prduto" class="border p-2 rounded w-full">
+        <input type="text" name="price" id="price" placeholder="Preço do Produto" class="border p-2 rounded w-full mt-2">
+        <input type="text" name="description" id="description" placeholder="Descrição do Produto" class="border p-2 rounded w-full mt-2">
+        <input type="submit" value="Cadastrar" class="mt-2 bg-blue-500 text-white p-2 rounded w-full">
     </form>
+    {% for product in products %}
+        <div class="bg-white p-6 rounded shadow-md mt-4">
+            <hr class="border-gray-200">
+            <p class="font-bold">Nome do produto: {{ product.name }}</p>
+            <p>Preço do produto: {{ product.price }}</p>
+            <p>Descrição do produto: {{ product.description }}</p>
+            <hr class="border-gray-200">
+        </div>
+    {% endfor %}
 </body>
 </html>
